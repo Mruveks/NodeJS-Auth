@@ -1,6 +1,16 @@
 const express =require('express');
 const expressLayouts = require('express-ejs-layouts')
+const mongoose = require('mongoose');
+require('dotenv').config();
+
 const app = express();
+
+// MongoDB
+const password = process.env.password;
+
+mongoose.connect(`mongodb+srv://user:${password}@authcluster.gyf7vaf.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true })
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err))
 
 // Ejs
 app.use(expressLayouts);
