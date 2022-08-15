@@ -14,7 +14,10 @@ mongoose.connect(`mongodb+srv://user:${password}@authcluster.gyf7vaf.mongodb.net
 
 // Ejs
 app.use(expressLayouts);
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+
+// Bodyparser
+app.use(express.urlencoded({ extended: false}));
 
 // Routes
 app.use('/', require('./routes/index'));
